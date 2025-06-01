@@ -1,0 +1,46 @@
+colorMode bold
+direction down
+title Single AI Agent with Specialized Tools - Flow Chart
+
+// User Input
+User Request [color: "#0F1632", shape: oval, icon: user]
+
+// AI Agent Core Functions
+AI Agent [color: "#255be3", icon: cpu]
+Interpret Request [color: "#255be3", icon: message-square]
+Plan Task Sequence [color: "#255be3", icon: list]
+
+// Specialized Tools
+Specialized Tools [color: "#D3DADD", icon: toolbox] {
+  Text to SQL [color: "#194044", icon: database]
+  Code Interpreter [color: "#194044", icon: code]
+  Document Search [color: "#194044", icon: file-text]
+  API Integrator [color: "#194044", icon: plug]
+}
+
+// Output Generation
+Analyze Results [color: "#f98ac9", icon: bar-chart]
+Generate Summary Report [color: "#f98ac9", icon: file]
+Deliver Report to User [color: "#0F1632", shape: oval, icon: send]
+
+// Limitations
+
+// Relationships
+User Request > AI Agent
+AI Agent > Interpret Request
+Interpret Request > Plan Task Sequence
+Plan Task Sequence > Specialized Tools
+
+// Sequential tool usage (cyclical process)
+Text to SQL > Code Interpreter
+Code Interpreter > Document Search
+Document Search > API Integrator
+API Integrator > Analyze Results
+Analyze Results > Generate Summary Report
+Generate Summary Report > Deliver Report to User
+
+// Loop back for cyclical/iterative process
+
+// Limitations (all connect from AI Agent)
+
+Plan Task Sequence < Generate Summary Report: If further analysis needed
