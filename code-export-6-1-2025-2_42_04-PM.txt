@@ -1,0 +1,35 @@
+title Autonomy: AI Agents with Specialized Tools
+
+// Nodes and groups
+User Request [shape: oval, color: #0F1632, icon: user]
+Agent Reasoning and Planning [color: #194044, icon: cpu]
+Tool Selection [shape: diamond, color: #255be3, icon: settings]
+
+Tool Execution [color: #D3DADD, icon: terminal] {
+  Code Interpreter [icon: code, color: #255be3]
+  Text to SQL [icon: database, color: #194044]
+  Document Search [icon: file-text, color: #d71671]
+  API Integrator [icon: plug, color: #f98ac9]
+}
+
+Analyze Results [icon: bar-chart-2, color: #194044]
+Generate Output [icon: file, color: #0F1632]
+Deliver Output to User [shape: oval, color: #d71671, icon: send]
+
+// Relationships
+User Request > Agent Reasoning and Planning
+Agent Reasoning and Planning > Tool Selection
+Tool Selection > Code Interpreter: If code execution needed
+Tool Selection > Text to SQL: If database query needed
+Tool Selection > Document Search: If document analysis needed
+Tool Selection > API Integrator: If external system needed
+
+Code Interpreter > Analyze Results
+Text to SQL > Analyze Results
+Document Search > Analyze Results
+API Integrator > Analyze Results
+
+Analyze Results > Generate Output: If task complete
+
+Generate Output > Deliver Output to User
+Agent Reasoning and Planning < Analyze Results: If further action needed
