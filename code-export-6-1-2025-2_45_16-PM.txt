@@ -1,0 +1,45 @@
+title Collaboration: Orchestrated AI Teams
+
+// Nodes and groups
+Workflow Initiation [shape: oval, color: #0F1632, icon: play]
+Orchestration Layer [color: #194044, icon: layers] {
+  Assign Tasks [icon: send, color: #194044]
+  Monitor Progress [icon: activity, color: #194044]
+  Aggregate Results [icon: database, color: #194044]
+}
+Agents [color: #255be3, icon: users] {
+  Analyst Agent [icon: bar-chart-2, color: #255be3]
+  Compliance Agent [icon: shield, color: #D3DADD]
+  Documentation Agent [icon: file-text, color: #f98ac9]
+  Validation Agent [icon: check-circle, color: #d71671]
+}
+Communication Protocols [color: #D3DADD, icon: message-circle] {
+  Send Data [icon: send, color: #D3DADD]
+  Receive Feedback [icon: message-square, color: #D3DADD]
+}
+Finalized Output [shape: oval, color: #0F1632, icon: check-square]
+
+// Relationships
+Workflow Initiation > Assign Tasks
+Assign Tasks > Analyst Agent
+Assign Tasks > Compliance Agent
+Assign Tasks > Documentation Agent
+
+Analyst Agent > Send Data: Analysis Results
+Compliance Agent > Send Data: Compliance Findings
+Documentation Agent > Send Data: Draft Report
+
+Send Data > Monitor Progress
+
+Monitor Progress > Validation Agent
+
+Validation Agent > Receive Feedback: Validation Results
+
+Receive Feedback > Aggregate Results
+
+Aggregate Results > Finalized Output
+
+// Feedback loops
+Analyst Agent < Validation Agent: Request Re-analysis
+Documentation Agent < Validation Agent: Request Revision
+Compliance Agent < Validation Agent: Request Re-check
