@@ -1,0 +1,27 @@
+title Stage 5 – Multi-Agent Systems Workflow
+// Nodes and groups
+Workflow Initiation [shape: oval, color: #045234, icon: play]
+Task Assignment [color: #045234, icon: send]
+Specialized Agents [color: #d71671, icon: users] {
+  Analyst Agent [color: #D3DADD, icon: bar-chart-2]
+  Compliance Agent [color: #D3DADD, icon: shield]
+  Documentation Agent [color: #D3DADD, icon: file-text]
+  Validation Agent [color: #D3DADD, icon: check-circle]
+}
+"Inter-Agent Communication" [shape: diamond, color: #045234, icon: message-circle]
+Workflow Orchestration [color: #045234, icon: workflow]
+Consolidated Output [shape: oval, color: #045234, icon: file-check]
+
+// Relationships
+Workflow Initiation > Task Assignment
+
+
+"Inter-Agent Communication" > Analyst Agent
+"Inter-Agent Communication" > Compliance Agent
+"Inter-Agent Communication" > Documentation Agent
+"Inter-Agent Communication" > Validation Agent
+
+"Inter-Agent Communication" > Workflow Orchestration
+Workflow Orchestration > Consolidated Output
+Task Assignment > Specialized Agents
+"Inter-Agent Communication" < Specialized Agents
