@@ -1,0 +1,140 @@
+title Modular RAG System with Hot-Swappable Retrieval Strategies
+
+// Entry & Configuration
+User Query Input [color: "#0F1632", shape: oval, icon: message-circle]
+Configuration Reader [color: "#194044", shape: diamond, icon: settings]
+Strategy Selector [color: "#194044", icon: shuffle]
+Configuration Panel [color: "#194044", icon: file-text] {
+  Example Config [color: "#194044", icon: file-text]
+}
+
+// Strategy Pattern Architecture
+RetrievalStrategy Interface [color: "#0F1632", shape: hexagon, icon: code]
+Standard RAG Strategy [color: "#d71671", icon: database]
+Hybrid RAG Strategy [color: "#d71671", icon: layers]
+Agentic RAG Strategy [color: "#d71671", icon: cpu]
+Graph RAG Strategy [color: "#d71671", icon: share-2]
+
+// Individual Retrieval Flows
+Standard RAG Flow [color: "#d71671", icon: database] {
+  Vector Embedding [color: "#0F1632", icon: hash]
+  Similarity Search [color: "#0F1632", icon: search]
+  Top K Results [color: "#0F1632", icon: list]
+}
+Hybrid RAG Flow [color: "#d71671", icon: layers] {
+  Hybrid Fork [color: "#0F1632", icon: git-branch]
+  Keyword Search [color: "#0F1632", icon: search]
+  Vector Embedding Hybrid [color: "#0F1632", icon: hash]
+  Semantic Search [color: "#0F1632", icon: search]
+  Weight and Combine Results [color: "#0F1632", icon: sliders]
+  Hybrid Ranked Results [color: "#0F1632", icon: list]
+}
+Agentic RAG Flow [color: "#d71671", icon: cpu] {
+  LLM Agent [color: "#0F1632", icon: user]
+  Agent Decision [color: "#0F1632", shape: diamond, icon: help-circle]
+  Use Semantic Search [color: "#0F1632", icon: search]
+  Use Keyword Search [color: "#0F1632", icon: search]
+  Query Knowledge Graph [color: "#0F1632", icon: share-2]
+  Multi Step Retrieval [color: "#0F1632", icon: repeat]
+  Agent Evaluate Results [color: "#0F1632", icon: check-circle]
+}
+Graph RAG Flow [color: "#d71671", icon: share-2] {
+  Entity Extraction [color: "#0F1632", icon: user-check]
+  Graph Traversal [color: "#0F1632", icon: shuffle]
+  Relationship Mining [color: "#0F1632", icon: link]
+  Find Entities [color: "#0F1632", icon: user-check]
+  Traverse Relationships [color: "#0F1632", icon: shuffle]
+  Aggregate Context [color: "#0F1632", icon: layers]
+}
+
+// Hot-Swapping Mechanism
+Strategy Registry [color: "#f98ac9", icon: list]
+Runtime Switch [color: "#f98ac9", shape: diamond, icon: zap]
+Hot Reload Process [color: "#f98ac9", icon: refresh-cw]
+Validation Layer [color: "#f98ac9", icon: check-square]
+
+// Output Processing & Integration
+Result Aggregator [color: "#194044", shape: funnel, icon: filter]
+Post Processing [color: "#194044", icon: filter]
+Context Assembly [color: "#194044", icon: layers]
+Response Generation [color: "#0F1632", shape: oval, icon: send]
+
+// Monitoring & Feedback
+Performance Metrics [color: "#255be3", icon: bar-chart-2] {
+  Retrieval Accuracy [color: "#255be3", icon: check]
+  Response Time [color: "#255be3", icon: clock]
+  Resource Usage [color: "#255be3", icon: cpu]
+  Strategy Effectiveness [color: "#255be3", icon: trending-up]
+}
+Feedback Loop [color: "#255be3", icon: refresh-ccw]
+
+// Relationships
+User Query Input > Configuration Reader
+Configuration Reader > Strategy Selector
+Configuration Reader > Configuration Panel
+Strategy Selector > RetrievalStrategy Interface
+
+// Strategy pattern branches
+RetrievalStrategy Interface > Standard RAG Strategy
+RetrievalStrategy Interface > Hybrid RAG Strategy
+RetrievalStrategy Interface > Agentic RAG Strategy
+RetrievalStrategy Interface > Graph RAG Strategy
+
+// Standard RAG branch
+Standard RAG Strategy > Standard RAG Flow
+Vector Embedding > Similarity Search
+Similarity Search > Top K Results
+Top K Results > Result Aggregator
+
+// Hybrid RAG branch
+Hybrid RAG Strategy > Hybrid RAG Flow
+Hybrid Fork > Keyword Search
+Hybrid Fork > Vector Embedding Hybrid
+Vector Embedding Hybrid > Semantic Search
+Keyword Search > Weight and Combine Results
+Semantic Search > Weight and Combine Results
+Weight and Combine Results > Hybrid Ranked Results
+Hybrid Ranked Results > Result Aggregator
+
+// Agentic RAG branch
+Agentic RAG Strategy > Agentic RAG Flow
+LLM Agent > Agent Decision
+Agent Decision > Use Semantic Search: Use semantic search
+Agent Decision > Use Keyword Search: Use keyword search
+Agent Decision > Query Knowledge Graph: Query knowledge graph
+Agent Decision > Multi Step Retrieval: Multi-step retrieval
+Use Semantic Search > Agent Evaluate Results
+Use Keyword Search > Agent Evaluate Results
+Query Knowledge Graph > Agent Evaluate Results
+Multi Step Retrieval > Agent Evaluate Results
+Agent Evaluate Results > Result Aggregator: Results ready
+
+// Graph RAG branch
+Graph RAG Strategy > Graph RAG Flow
+Entity Extraction > Graph Traversal
+Graph Traversal > Relationship Mining
+Relationship Mining > Find Entities
+Find Entities > Traverse Relationships
+Traverse Relationships > Aggregate Context
+Aggregate Context > Result Aggregator
+
+// Hot-swapping mechanism
+Strategy Selector > Strategy Registry
+Strategy Registry > Runtime Switch
+Runtime Switch > Hot Reload Process: Strategy change requested
+Hot Reload Process > Validation Layer
+
+// Output processing
+Result Aggregator > Post Processing
+Post Processing > Context Assembly
+Context Assembly > Response Generation
+
+// Monitoring & Feedback
+Result Aggregator > Performance Metrics
+Performance Metrics > Feedback Loop
+
+// Performance metrics details
+Agent Decision < Agent Evaluate Results: Iterate if needed
+RetrievalStrategy Interface < Validation Layer: Valid configuration
+Strategy Selector < Feedback Loop: Adjust strategy
+
